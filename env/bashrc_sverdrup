@@ -1,0 +1,55 @@
+#!/bin/bash
+
+##set terminal
+export TERM=xterm-256color
+
+##set some variables for SICOPOLIS tapenade
+export TAPENADE_HOME="/home/shreyas/tapenade_3.16"
+export PATH="$PATH:$TAPENADE_HOME/bin"
+export LD_LIBRARY_PATH="/home/shreyas/lis-1.4.43/installation/lib:$LD_LIBRARY_PATH"
+
+##Modules
+module use /share/modulefiles/
+module load java/jdk/16.0.1 #Required by Tapenade
+module load gnu
+module load openmpi
+module load netcdf-fortran
+module load netcdf
+
+## Directories
+export HOME=/home/shreyas
+export SCRATCH=/scratch/shreyas
+export sha_bash=~/sha_bash
+export SSCRATCH=/scratch2/shreyas
+
+## Commands 
+alias qu='squeue -u shreyas'
+
+## Increase stack size
+ulimit -s hard
+ulimit -u hard
+
+### Expand environment variables in tab completion ###
+shopt -s direxpand
+
+## group permissions
+umask 027
+
+## Commands for interactive node and jupyter notebook
+alias interactive='srun -t 1440 -N 1 --ntasks 4 --cpus-per-task=7 --pty bash -i'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/shreyas/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/shreyas/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/shreyas/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/shreyas/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
