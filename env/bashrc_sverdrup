@@ -57,3 +57,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+## git authentication
+git config --global credential.helper "cache --timeout=86400"
+
