@@ -1,0 +1,11 @@
+name: py38_fenics_env
+channels:
+  - conda-forge
+dependencies:
+    - python=3.8
+    - numpy
+    - scipy
+    - matplotlib
+    - notebook
+    - fenics
+    - mshr
