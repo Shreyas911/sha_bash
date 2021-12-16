@@ -19,6 +19,7 @@ module load gnu
 module load openmpi
 module load netcdf-fortran
 module load netcdf
+module load cmake
 
 ## Directories
 export HOME=/home/shreyas
@@ -28,6 +29,8 @@ export SSCRATCH=/scratch2/shreyas
 
 ## Commands 
 alias qu='squeue -u shreyas'
+alias cds='cd /scratch/shreyas/'
+alias cdss='cd /scratch2/shreyas/'
 
 ## Increase stack size
 ulimit -s hard
