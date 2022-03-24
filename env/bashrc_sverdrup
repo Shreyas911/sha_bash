@@ -11,7 +11,8 @@ PS1='\W\$ '
 export TAPENADE_HOME="/home/shreyas/tapenade_3.16"
 export PATH="$PATH:$TAPENADE_HOME/bin"
 export LD_LIBRARY_PATH="/home/shreyas/lis-1.4.43/installation/lib:$LD_LIBRARY_PATH"
-
+## Necessary to find crti* file when using sico.sh
+export LIBRARY_PATH=/usr/lib64/:$LIBRARY_PATH
 ##Modules
 module use /share/modulefiles/
 module load java/jdk/16.0.1 #Required by Tapenade
