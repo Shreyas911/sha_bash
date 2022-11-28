@@ -1,0 +1,38 @@
+#!/bin/bash
+
+##set terminal
+export TERM=xterm-256color
+
+##prompt variables escape sequence
+##Helps to see the working directory
+PS1='\W\$ '
+
+##Modules
+module load cuda
+module save
+
+## Directories
+export HOME=/home1/07665/shrey911
+export sha_bash=$HOME/sha_bash
+export cuda_course=$WORK/CUDA_course
+
+## Commands 
+alias qu='squeue -u shreyas'
+
+## Increase stack size
+ulimit -s hard
+ulimit -u hard
+
+### Expand environment variables in tab completion ###
+shopt -s direxpand
+
+## group permissions
+umask 027
+
+## Commands for interactive node
+alias cuda_interactive='srun --partition=gpu-a100 --time=00:30:00 -n1 --pty /bin/bash'
+alias interactive='srun -t 30 -N 1 --ntasks 4 --cpus-per-task=7 --pty bash -i'
+
+## git authentication
+git config --global credential.helper "cache --timeout=86400"
+
