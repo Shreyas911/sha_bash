@@ -1,0 +1,20 @@
+##set terminal
+export TERM=xterm-256color
+
+## Directories
+export HOME=/Users/shreyas
+export sha_bash=$HOME/Desktop/Shreyas/sha_bash
+
+## Commands
+alias sverdrup='ssh -J shreyas@login1.oden.utexas.edu shreyas@sverdrup.oden.utexas.edu'
+alias lonestar6='ssh shrey911@ls6.tacc.utexas.edu'
+alias ..="cd .."
+alias ...="cd ../.."
+alias cd..="cd .."
+
+## Source this to use jupytersv command for Sverdrup
+source $HOME/Desktop/connect_to_sverdrup_notebook.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+

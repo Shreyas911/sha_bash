@@ -32,6 +32,9 @@ export SSCRATCH=/scratch2/shreyas
 alias qu='squeue -u shreyas'
 alias cds='cd /scratch/shreyas/'
 alias cdss='cd /scratch2/shreyas/'
+alias ..="cd .."
+alias ...="cd ../.."
+alias cd..="cd .."
 
 ## Increase stack size
 ulimit -s hard

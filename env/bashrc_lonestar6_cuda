@@ -21,6 +21,9 @@ export CUDA_HOME=/opt/apps/cuda/11.4/
 
 ## Commands 
 alias qu='squeue -u shreyas'
+alias ..="cd .."
+alias ...="cd ../.."
+alias cd..="cd .."
 
 ## Increase stack size
 ulimit -s hard
