@@ -25,7 +25,7 @@ module load cmake
 ## Directories
 export HOME=/home/shreyas
 export SCRATCH=/scratch/shreyas
-export sha_bash=~/sha_bash
+export sha_bash=~/Miscellaneous/sha_bash
 export SSCRATCH=/scratch2/shreyas
 
 ## Commands 
