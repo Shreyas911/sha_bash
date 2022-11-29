@@ -20,7 +20,7 @@ export cuda_course=$WORK/CUDA_course
 export CUDA_HOME=/opt/apps/cuda/11.4/
 
 ## Commands 
-alias qu='squeue -u shreyas'
+alias qu='squeue -u shrey911'
 alias ..="cd .."
 alias ...="cd ../.."
 alias cd..="cd .."
