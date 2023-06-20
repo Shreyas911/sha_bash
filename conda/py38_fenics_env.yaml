@@ -9,3 +9,7 @@ dependencies:
     - notebook
     - fenics
     - mshr
+    - mpi4py
+    - pip
+    - pip:
+      - hIPPYlib
