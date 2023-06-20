@@ -17,4 +17,8 @@ source $HOME/Desktop/connect_to_sverdrup_notebook.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
 
+# Add Julia to path
+export PATH="$PATH:/Applications/Julia-1.9.app/Contents/Resources/julia/bin"
