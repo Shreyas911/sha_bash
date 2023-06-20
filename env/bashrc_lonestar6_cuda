@@ -16,14 +16,20 @@ export HOME=/home1/07665/shrey911
 export sha_bash=$HOME/sha_bash
 export cuda_course=$WORK/CUDA_course
 
+## Add Julia to path
+export PATH="$PATH:$HOME/julia-1.9.1/bin"
+export LD_LIBRARY_PATH="$PATH:$HOME/julia-1.9.1/lib"
+
 ## Environment variables for CUDA
-export CUDA_HOME=/opt/apps/cuda/11.4/
+export CUDA_HOME=$TACC_CUDA_DIR
+export LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH
 
 ## Commands 
 alias qu='squeue -u shrey911'
 alias ..="cd .."
 alias ...="cd ../.."
 alias cd..="cd .."
+alias julia='LD_LIBRARY_PATH="" julia'
 
 ## Increase stack size
 ulimit -s hard
