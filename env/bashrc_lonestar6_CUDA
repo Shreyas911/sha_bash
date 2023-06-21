@@ -13,12 +13,17 @@ module save
 
 ## Directories
 export HOME=/home1/07665/shrey911
+export WORK=/work/07665/shrey911/ls6
 export sha_bash=$HOME/sha_bash
 export cuda_course=$WORK/CUDA_course
 
 ## Add Julia to path
 export PATH="$PATH:$HOME/julia-1.9.1/bin"
 export LD_LIBRARY_PATH="$PATH:$HOME/julia-1.9.1/lib"
+
+##set some variables for Tapenade
+export TAPENADE_HOME="$HOME/tapenade_3.16"
+export PATH="$PATH:$TAPENADE_HOME/bin"
 
 ## Environment variables for CUDA
 export CUDA_HOME=$TACC_CUDA_DIR
@@ -39,7 +44,7 @@ ulimit -u hard
 shopt -s direxpand
 
 ## group permissions
-umask 027
+#umask 027
 
 ## Commands for interactive node
 alias cuda_interactive='srun --partition=gpu-a100 --time=00:30:00 -n1 --pty /bin/bash'
