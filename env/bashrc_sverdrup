@@ -7,6 +7,9 @@ export TERM=xterm-256color
 ##Helps to see the working directory
 PS1='\W\$ '
 
+## Add Julia to path
+export PATH="$PATH:/home/shreyas/julia-1.9.1/bin"
+
 ##set some variables for SICOPOLIS tapenade
 export TAPENADE_HOME="/home/shreyas/tapenade_3.16"
 export PATH="$PATH:$TAPENADE_HOME/bin"
