@@ -1,0 +1,67 @@
+name: py311_LRP
+channels:
+  - conda-forge
+  - defaults
+  - main
+dependencies:
+    - python=3.11
+# Basics
+    - numpy
+    - scipy
+    - future
+    - pip
+# LRP
+    - pip:
+      - innvestigate
+# xarray et al
+    - xarray
+    - netCDF4
+    - bottleneck
+    - dask
+    - cftime
+    - nc-time-axis
+    - xmitgcm
+    - xgcm
+    - ecco_v4_py
+# plotting resampling
+    - cartopy
+    - cmocean
+    - pyresample
+# for other packages
+    - cachetools
+    - fsspec
+    - zarr
+    - coverage
+    - pytest-cov 
+    - codecov
+    - black
+    - docrep
+    - aiohttp
+# jupyter etc
+    - jupyter
+    - jupyterlab
+    - ipython
+    - ipykernel
+# etc
+    - gsw
+    - vaex
+    - numba
+    - h5py
+    - hdf4
+    - hdf5
+# docs
+    - sphinx
+    - sphinx_rtd_theme
+    - numpydoc
+    - nbsphinx
+# Specify blas to use mkl
+    - mkl
+    - libblas=*=*mkl
+# scikit-learn
+    - scikit-learn
+# tf and tf.keras
+    - cudatoolkit
+    - cudnn
+    - nccl
+#    - tensorflow==2.12.0=gpu_py311*
+#    - tensorflow_addons # Not available

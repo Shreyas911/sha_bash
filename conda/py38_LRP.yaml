@@ -1,0 +1,66 @@
+name: py38_LRP
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+    - python=3.8
+# Basics
+    - numpy
+    - scipy
+    - future
+    - pip=20.0
+# LRP
+    - pip:
+      - innvestigate
+# xarray et al
+    - xarray
+    - netCDF4
+    - bottleneck
+    - dask
+    - cftime
+    - nc-time-axis>=1.2.0
+    - xmitgcm
+    - xgcm
+    - ecco_v4_py
+# plotting resampling
+    - cartopy
+    - cmocean
+    - pyresample
+# for other packages
+    - cachetools
+    - fsspec
+    - zarr
+    - coverage
+    - pytest-cov 
+    - codecov
+    - black
+    - docrep<=0.2.7
+    - aiohttp
+# jupyter etc
+    - jupyter
+    - jupyterlab
+    - ipython
+    - ipykernel
+# etc
+    - gsw
+    - vaex
+    - numba
+    - h5py
+    - hdf4
+    - hdf5
+# docs
+    - sphinx
+    - sphinx_rtd_theme
+    - numpydoc
+    - nbsphinx
+# Specify blas to use mkl
+    - mkl
+    - libblas=*=*mkl
+# tf and tf.keras
+    - cudatoolkit=10.1
+    - cudnn=7.6
+    - nccl=2.4
+    - tensorflow-gpu=2.2
+# scikit-learn
+    - scikit-learn
+
