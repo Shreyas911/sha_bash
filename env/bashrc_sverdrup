@@ -17,6 +17,9 @@ export LD_LIBRARY_PATH="/home/shreyas/lis-1.4.43/installation/lib:$LD_LIBRARY_PA
 #export LD_LIBRARY_PATH="/home/shreyas/lis-2.0.30-intel/installation/lib:$LD_LIBRARY_PATH"
 ## Necessary to find crti* file when using sico.sh
 export LIBRARY_PATH=/usr/lib64/:$LIBRARY_PATH
+export LISDIR="/home/shreyas/lis-2.0.30/installation"
+export NETCDF_FORTRAN_DIR="/opt/ohpc/pub/libs/gnu/openmpi/netcdf-fortran/4.4.4"
+
 ##Modules
 module use /share/modulefiles/
 module load java/jdk/16.0.1 #Required by Tapenade
