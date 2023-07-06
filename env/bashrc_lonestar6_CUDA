@@ -1,6 +1,6 @@
 #!/bin/bash
 
-##set terminal
+## set terminal
 export TERM=xterm-256color
 
 ##prompt variables escape sequence
@@ -9,57 +9,23 @@ PS1='\W\$ '
 
 export nickname='lonestar6'
 
-##Modules
-#module use /share/modulefiles/
-#module load java/jdk/16.0.1 #Required by Tapenade
-module load gcc/11.2.0
-module load netcdf/4.7.4
+## Modules
+module unload TACC
+module load gcc/9.4.0
+module load netcdf/4.6.2
 module load cmake/3.24.2
 module load cuda
+module load impi/19.0.9
 module save
 
 ## Directories
-export HOME=/home1/07665/shrey911
+export HOME=$HOME
 export WORK=/work/07665/shrey911/ls6
 export sha_bash=$HOME/sha_bash
-export cuda_course=$WORK/CUDA_course
-
-## Add Julia to path
-export PATH="$PATH:$HOME/julia-1.9.1/bin"
-export LD_LIBRARY_PATH="$PATH:$HOME/julia-1.9.1/lib"
-
-## set some variables for Tapenade
-export JAVA_HOME="/home1/07665/shrey911/jdk-20.0.1"
-export PATH="$PATH:$JAVA_HOME/bin:$PATH"
-
-export TAPENADE_HOME="$HOME/tapenade_3.16"
-export PATH="$PATH:$TAPENADE_HOME/bin"
-
-# Help find libmpfr.so.6
-# A symlink has been created from /usr/lib64/libmpfr.so.4.1.6 to $HOME/libmpfr.so.6
-# Seems like a risky hack but whatever
-ln -sf /usr/lib64/libmpfr.so.4.1.6 ~/libmpfr.so.6
-export LD_LIBRARY_PATH="$HOME:$LD_LIBRARY_PATH"
-
-## set some variables for SICOPOLIS tapenade
-export LD_LIBRARY_PATH="$HOME/lis-2.1.3/installation/lib:$LD_LIBRARY_PATH"
-## Necessary to find crti* file when using sico.sh
-export LIBRARY_PATH=/usr/lib64/:$LIBRARY_PATH
-
-## Environment variables for NetCDF
-#export NETCDF_BIN=$TACC_NETCDF_BIN
-#export NETCDF_ROOT=$TACC_NETCDF_DIR
-#export NETCDF_INC=$TACC_NETCDF_INC
-#export NETCDF_LIB=$TACC_NETCDF_LIB
-## To find libnetcdff.so.7
-## Again something that could be risky
-## Note that $HOME is already added to LD_LIBRARY_PATH above
-ln -sf /opt/apps/gcc9_4/netcdf/4.6.2/x86_64/lib/libnetcdff.so.6.1.1 ~/libnetcdff.so.7
-
 
 ## Environment variables for CUDA
 export CUDA_HOME=$TACC_CUDA_DIR
-export LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="/usr/lib64:$LD_LIBRARY_PATH"
 
 ## Commands 
 alias qu='squeue -u shrey911'
@@ -69,6 +35,42 @@ alias cd..="cd .."
 alias julia='LD_LIBRARY_PATH="" julia'
 alias gfortran='/opt/apps/gcc/9.4.0/bin/gfortran'
 
+## Add Julia to path
+export PATH="$PATH:$HOME/julia-1.9.1/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/julia-1.9.1/lib"
+
+## set some variables for Tapenade
+export JAVA_HOME="$HOME/jdk-20.0.1"
+export TAPENADE_HOME="$HOME/tapenade_3.16"
+export PATH="$PATH:$JAVA_HOME/bin:$PATH"
+export PATH="$PATH:$TAPENADE_HOME/bin"
+
+## Environment variables for IMPI
+export MPI_ROOT=$TACC_IMPI_DIR
+export MPI_DIR=$TACC_IMPI_DIR
+export MPI_BIN=$TACC_IMPI_BIN
+export MPI_INC_DIR=$TACC_IMPI_INC
+export MPI_INC=$TACC_IMPI_INC
+export MPI_LIB=$TACC_IMPI_LIB
+
+## Environment variables for NetCDF
+export NETCDF_ROOT=$TACC_NETCDF_DIR
+export NETCDF_FORTRAN_DIR=$TACC_NETCDF_DIR
+export NETCDF_DIR=$TACC_NETCDF_DIR
+export NETCDF_BIN=$TACC_NETCDF_BIN
+export NETCDF_INC=$TACC_NETCDF_INC
+export NETCDF_LIB=$TACC_NETCDF_LIB
+
+## Help find libmpfr.so.7
+##export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/apps/gcc/11.2.0/lib"
+
+## Set some variables for SICOPOLIS tapenade
+# Necessary to find crti* file when using sico.sh
+#export LIBRARY_PATH=/usr/lib64/:$LIBRARY_PATH
+export LISDIR="$HOME/lis-2.1.3/installation"
+# Maybe useful to find liblis.so.0
+export LD_LIBRARY_PATH="$HOME/lis-2.1.3/installation/lib:$LD_LIBRARY_PATH"
+
 ## Increase stack size
 ulimit -s hard
 ulimit -u hard
@@ -77,7 +79,7 @@ ulimit -u hard
 shopt -s direxpand
 
 ## group permissions
-#umask 027
+umask 027
 
 ## Commands for interactive node
 alias cuda_interactive='srun -A OCE23001 --partition=gpu-a100 --time=00:30:00 -n1 --pty /bin/bash'
@@ -108,3 +110,25 @@ export ts_work=/work/03754/tsmith
 export ts_scratch=/scratch/03754/tsmith
 
 # Joseph
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/work/07665/shrey911/ls6/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/work/07665/shrey911/ls6/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/work/07665/shrey911/ls6/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/work/07665/shrey911/ls6/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/work/07665/shrey911/ls6/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/work/07665/shrey911/ls6/mambaforge/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+# Load a default python env
+mamba activate py310_LRP
