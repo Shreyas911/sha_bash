@@ -64,4 +64,3 @@ dependencies:
     - cudnn
     - nccl
     - tensorflow==2.9.1=gpu_py310*
-    - tensorflow_addons
