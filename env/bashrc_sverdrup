@@ -1,28 +1,27 @@
 #!/bin/bash
 
-##set terminal
+## Set terminal
 export TERM=xterm-256color
 
-##prompt variables escape sequence
-##Helps to see the working directory
+## Prompt variables escape sequence
+## Helps to see the working directory
 PS1='\W\$ '
 
 ## Add Julia to path
 export PATH="$PATH:/home/shreyas/julia-1.9.1/bin"
 
-##set some variables for SICOPOLIS tapenade
+## Set some variables for SICOPOLIS tapenade
 export TAPENADE_HOME="/home/shreyas/tapenade_3.16"
 export PATH="$PATH:$TAPENADE_HOME/bin"
-export LD_LIBRARY_PATH="/home/shreyas/lis-1.4.43/installation/lib:$LD_LIBRARY_PATH"
-#export LD_LIBRARY_PATH="/home/shreyas/lis-2.0.30-intel/installation/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/home/shreyas/lis-2.1.3/installation/lib:$LD_LIBRARY_PATH"
 ## Necessary to find crti* file when using sico.sh
 export LIBRARY_PATH=/usr/lib64/:$LIBRARY_PATH
-export LISDIR="/home/shreyas/lis-2.0.30/installation"
+export LISDIR="/home/shreyas/lis-2.1.3/installation"
 export NETCDF_FORTRAN_DIR="/opt/ohpc/pub/libs/gnu/openmpi/netcdf-fortran/4.4.4"
 
-##Modules
+## Modules
 module use /share/modulefiles/
-module load java/jdk/16.0.1 #Required by Tapenade
+module load java/jdk/16.0.1 # Required by Tapenade
 module load gnu7/7.3.0
 module load openmpi
 module load netcdf-fortran
@@ -50,31 +49,32 @@ ulimit -u hard
 ### Expand environment variables in tab completion ###
 shopt -s direxpand
 
-## group permissions
+## Group permissions
 umask 027
 
 ## Commands for interactive node and jupyter notebook
 alias interactive='srun -t 1440 -N 1 --ntasks 4 --cpus-per-task=7 --pty bash -i'
 
+## git authentication
+git config --global credential.helper "cache --timeout=86400"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/shreyas/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/scratch2/shreyas/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/shreyas/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/shreyas/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/scratch2/shreyas/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/scratch2/shreyas/mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="/home/shreyas/mambaforge/bin:$PATH"
+        export PATH="/scratch2/shreyas/mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/home/shreyas/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/home/shreyas/mambaforge/etc/profile.d/mamba.sh"
+if [ -f "/scratch2/shreyas/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/scratch2/shreyas/mambaforge/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 
-## git authentication
-git config --global credential.helper "cache --timeout=86400"
-
+mamba activate py310_LRP
