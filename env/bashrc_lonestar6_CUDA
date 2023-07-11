@@ -82,8 +82,8 @@ shopt -s direxpand
 umask 027
 
 ## Commands for interactive node
-alias cuda_interactive='srun -A OCE23001 --partition=gpu-a100 --time=00:30:00 -n1 --pty /bin/bash'
-alias interactive='srun -A OCE23001 --partition=normal -t 30 -N 1 --ntasks 4 --cpus-per-task=7 --pty bash -i'
+alias cuda_interactive='srun -A OCE23001 --partition=gpu-a100-dev --time=01:00:00 -n1 --pty /bin/bash'
+alias interactive='srun -A OCE23001 --partition=development --time=01:00:00 -N 1 --ntasks 4 --cpus-per-task=7 --pty bash -i'
 
 ## git authentication
 git config --global credential.helper "cache --timeout=86400"
