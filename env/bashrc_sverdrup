@@ -78,3 +78,26 @@ fi
 # <<< conda initialize <<<
 
 mamba activate py310_LRP
+
+## Other people's directories
+
+# Patrick
+export ph_home=/home/heimbach
+export ph_scratch=/scratch/heimbach
+export ph_scratch2=/scratch2/heimbach
+
+# An
+export an_home=/home/atnguyen
+export an_scratch=/scratch/atnguyen
+export an_scratch2=/scratch2/atnguyen
+
+# Helen
+export hp_home=/home/pillarh
+export hp_scratch=/scratch/pillarh
+export hp_scratch2=/scratch2/pillarh
+export hp_matlabdir=$hp_home/HP_MATLAB_SVERDRUP/matlab_forShreyas_adjLRPcompare
+
+# Tim
+export ts_home=/home/tsmith
+export ts_scratch=/scratch/tsmith
+export ts_scratch2=/scratch2/tsmith
