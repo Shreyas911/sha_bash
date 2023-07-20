@@ -1,2 +1,3 @@
-set viminfo='100,<1000,s100,h'
+set history=100
 set number
+set viminfo='100,<1000,s100,h
