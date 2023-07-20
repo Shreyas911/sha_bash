@@ -79,6 +79,10 @@ fi
 
 mamba activate py310_LRP
 
+# Source vimrc
+
+source ~/.vimrc
+
 ## Other people's directories
 
 # Patrick
