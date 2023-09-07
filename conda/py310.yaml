@@ -1,0 +1,57 @@
+name: py310
+channels:
+  - conda-forge
+  - defaults
+  - main
+dependencies:
+    - python=3.10
+# Basics
+    - numpy
+    - scipy
+    - future
+    - pip
+# LRP
+    - pip:
+      - innvestigate
+# xarray et al
+    - xarray
+    - netCDF4
+    - bottleneck
+    - dask
+    - cftime
+    - nc-time-axis
+    - xmitgcm
+    - xgcm
+# plotting resampling
+    - cartopy
+    - cmocean
+    - pyresample
+# for other packages
+    - cachetools
+    - fsspec
+    - zarr
+    - coverage
+    - pytest-cov 
+    - codecov
+    - black
+    - docrep
+    - aiohttp
+# jupyter etc
+    - jupyter
+    - jupyterlab
+    - ipython
+    - ipykernel
+# etc
+    - gsw
+    - vaex
+    - numba
+    - h5py
+    - hdf4
+    - hdf5
+# docs
+    - sphinx
+    - sphinx_rtd_theme
+    - numpydoc
+    - nbsphinx
+# scikit-learn
+    - scikit-learn
