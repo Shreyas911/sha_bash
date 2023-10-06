@@ -1,0 +1,52 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+# add your customizations below
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+
+source /etc/profile
+
+## Set terminal
+export TERM=xterm-256color
+
+## Prompt variables escape sequence
+## Helps to see the working directory
+PS1='\W\$ '
+
+## Directories
+export HOME=/oden/shreyas
+export sha_bash=$HOME/Desktop/Shreyas/sha_bash
+
+## Commands
+alias sverdrup='ssh shreyas@sverdrup.oden.utexas.edu'
+alias lonestar6='ssh shrey911@ls6.tacc.utexas.edu'
+alias ..="cd .."
+alias ...="cd ../.."
+alias cd..="cd .."
+
+## Source this to use jupytersv command for Sverdrup
+source $HOME/Desktop/connect_to_sverdrup_notebook.sh
+
+## Increase stack size
+ulimit -s hard
+ulimit -u hard
+
+### Expand environment variables in tab completion ###
+shopt -s direxpand
+
+## Group permissions
+umask 027
+
+## git authentication
+git config --global credential.helper "cache --timeout=86400"
