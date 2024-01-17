@@ -104,8 +104,8 @@ export an_scratch=/scratch/03901/atnguyen
 # Helen
 export hp_work=/work2/05773/hpillar
 export hp_scratch=/scratch/05773/hpillar
-export hp_LRP_rootdir=/work2/05773/hpillar/MITgcm_c68q/mysetups/global_oce_latlon_4x4
-export hp_LRP_scratchdir=/scratch/05773/hpillar/global_oce_latlon_4x4
+export hp_LRP_rootdir=/work2/05773/hpillar/MITgcm_c68q/mysetups
+export hp_LRP_scratchdir=/scratch/05773/hpillar/RUNS_FROM_STAMPEDE2
 
 # Tim
 export ts_work=/work/03754/tsmith
