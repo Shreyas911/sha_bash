@@ -31,11 +31,11 @@
 # }
 
 # The following example is used to connect a jupyter notebook
-# server running on a stampede2 compute node to the user's local machine
-# Make sure to replace <stampede2> with the lowest-level domain name 
+# server running on a Lonestar6 compute node to the user's local machine
+# Make sure to replace <ls6> with the lowest-level domain name 
 # of the applicable TACC machine (<frontera>, <lonestar>, etc.) if applicable
 
-jupyter_tacc () {
-    ssh -L localhost:$1:$2:$1 stampede2.tacc.utexas.edu;             
+jupyter_ls6 () {
+    ssh -L localhost:$1:$2:$1 ls6.tacc.utexas.edu;             
 
 }
