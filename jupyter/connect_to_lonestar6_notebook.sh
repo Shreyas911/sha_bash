@@ -1,5 +1,6 @@
 #!/bin/bash 
 
+
 # Add this to your bashrc on your local machine (i.e., your laptop) to connect to jupyter notebooks on Sverdrup easier.
 # The steps are:
 #   1. Connect to TACC machine and open up interactive session on a compute node
@@ -35,7 +36,7 @@
 # Make sure to replace <ls6> with the lowest-level domain name 
 # of the applicable TACC machine (<frontera>, <lonestar>, etc.) if applicable
 
-jupyter_ls6 () {
+jupyterls6 () {
     ssh -L localhost:$1:$2:$1 ls6.tacc.utexas.edu;             
 
 }
