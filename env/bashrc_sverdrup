@@ -28,13 +28,13 @@ export NETCDF_FORTRAN_DIR="/opt/ohpc/pub/libs/gnu/openmpi/netcdf-fortran/4.4.4"
 ## Modules
 module use /share/modulefiles/
 module load java/jdk/16.0.1 # Required by Tapenade
-module load gnu7/7.3.0
-module load openmpi
-module load netcdf-fortran
-module load netcdf
+module load gnu12/12.2.0
+module load openmpi4/4.1.5
+module load netcdf-fortran/4.6.0
+module load netcdf/4.9.0
 module load cmake
-module load matlab/r2020b
-#module swap gnu7 intel
+module load matlab/r2024a
+#module swap gnu12 intel/2024.1.0
 
 ## Commands 
 alias qu='squeue -u shreyas'
@@ -56,7 +56,7 @@ shopt -s direxpand
 umask 027
 
 ## Commands for interactive node and jupyter notebook
-alias interactive='srun -t 1440 -N 1 --ntasks 4 --cpus-per-task=7 --pty bash -i'
+alias interactive='srun -p normal -t 1:00:00 -n 24 --pty /bin/bash -l'
 
 ## git authentication
 git config --global credential.helper "cache --timeout=86400"
