@@ -56,7 +56,7 @@ shopt -s direxpand
 umask 027
 
 ## Commands for interactive node and jupyter notebook
-alias interactive='srun -p normal -t 1:00:00 -n 24 --pty /bin/bash -l'
+alias interactive='srun -p normal -t 1440 -n 24 --pty /bin/bash -l'
 
 ## git authentication
 git config --global credential.helper "cache --timeout=86400"
