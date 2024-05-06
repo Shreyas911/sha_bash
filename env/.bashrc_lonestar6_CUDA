@@ -21,7 +21,7 @@ module save
 ## Directories
 export HOME=$HOME
 export WORK=/work/07665/shrey911/ls6
-export sha_bash=$HOME/sha_bash
+export sha_bash=$WORK/sha_bash
 
 ## Environment variables for CUDA
 export CUDA_HOME=$TACC_CUDA_DIR
@@ -32,12 +32,12 @@ alias qu='squeue -u shrey911'
 alias ..="cd .."
 alias ...="cd ../.."
 alias cd..="cd .."
-alias julia='LD_LIBRARY_PATH="" julia'
+#alias julia='LD_LIBRARY_PATH="" julia'
 alias gfortran='/opt/apps/gcc/9.4.0/bin/gfortran'
 
 ## Add Julia to path
-export PATH="$PATH:$HOME/julia-1.9.1/bin"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/julia-1.9.1/lib"
+#export PATH="$PATH:$HOME/julia-1.9.1/bin"
+#export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/julia-1.9.1/lib"
 
 ## set some variables for Tapenade
 export JAVA_HOME="$HOME/jdk-20.0.1"
@@ -90,7 +90,7 @@ git config --global credential.helper "cache --timeout=86400"
 
 ## Other people's directories
 # Community portal
-export communitydir=/work/projects/aci/ECCO/community
+#export communitydir=/work/projects/aci/ECCO/community
 
 # Patrick
 export ph_data=/work/03263/heimbach/data
