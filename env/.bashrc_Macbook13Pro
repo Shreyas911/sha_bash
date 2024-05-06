@@ -7,6 +7,8 @@ export sha_bash=$HOME/Desktop/Shreyas/sha_bash
 
 ## Commands
 alias sverdrup='ssh -J shreyas@login1.oden.utexas.edu shreyas@sverdrup.oden.utexas.edu'
+alias stampede2='ssh shrey911@stampede2.tacc.utexas.edu'
+alias stampede3='ssh shrey911@stampede3.tacc.utexas.edu'
 alias lonestar6='ssh shrey911@ls6.tacc.utexas.edu'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -22,3 +24,8 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 # Add Julia to path
 export PATH="$PATH:/Applications/Julia-1.9.app/Contents/Resources/julia/bin"
+
+# jupyter for Sverdrup and Lonestar6
+source $HOME/Desktop/connect_to_sverdrup_notebook.sh
+source $HOME/Desktop/connect_to_lonestar6_notebook.sh
+source $HOME/Desktop/connect_to_stampede3_notebook.sh
