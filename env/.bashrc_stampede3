@@ -1,0 +1,134 @@
+#!/bin/bash
+
+## set terminal
+export TERM=xterm-256color
+
+##prompt variables escape sequence
+##Helps to see the working directory
+PS1='\W\$ '
+
+export nickname='stampede3'
+
+## Modules
+module load gcc/13.2.0
+module load netcdf/4.9.2
+module load cmake/3.28.1
+module load impi/21.11
+module save
+
+## Directories
+export HOME=$HOME
+export WORK=/work/07665/shrey911/stampede3
+export sha_bash=$WORK/sha_bash
+
+## Environment variables for CUDA
+export CUDA_HOME=$TACC_CUDA_DIR
+export LD_LIBRARY_PATH="/usr/lib64:$LD_LIBRARY_PATH"
+
+## Commands 
+alias qu='squeue -u shrey911'
+alias ..="cd .."
+alias ...="cd ../.."
+alias cd..="cd .."
+#alias julia='LD_LIBRARY_PATH="" julia'
+alias gfortran='/opt/apps/gcc/13.2.0/bin/gfortran'
+
+## Add Julia to path
+#export PATH="$PATH:$HOME/julia-1.9.1/bin"
+#export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/julia-1.9.1/lib"
+
+## set some variables for Tapenade
+export JAVA_HOME="$HOME/jdk-20.0.1"
+export TAPENADE_HOME="$HOME/tapenade_3.16"
+export PATH="$PATH:$JAVA_HOME/bin:$PATH"
+export PATH="$PATH:$TAPENADE_HOME/bin"
+
+## Environment variables for IMPI
+export MPI_ROOT=$TACC_IMPI_DIR
+export MPI_DIR=$TACC_IMPI_DIR
+export MPI_BIN=$TACC_IMPI_BIN
+export MPI_INC_DIR=$TACC_IMPI_INC
+export MPI_INC=$TACC_IMPI_INC
+export MPI_LIB=$TACC_IMPI_LIB
+
+## Environment variables for NetCDF
+export NETCDF_ROOT=$TACC_NETCDF_DIR
+export NETCDF_FORTRAN_DIR=$TACC_NETCDF_DIR
+export NETCDF_DIR=$TACC_NETCDF_DIR
+export NETCDF_BIN=$TACC_NETCDF_BIN
+export NETCDF_INC=$TACC_NETCDF_INC
+export NETCDF_LIB=$TACC_NETCDF_LIB
+
+## Help find libmpfr.so.7
+##export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/apps/gcc/11.2.0/lib"
+
+## Set some variables for SICOPOLIS tapenade
+# Necessary to find crti* file when using sico.sh
+#export LIBRARY_PATH=/usr/lib64/:$LIBRARY_PATH
+export LISDIR="$HOME/lis-2.1.3/installation"
+# Maybe useful to find liblis.so.0
+export LD_LIBRARY_PATH="$HOME/lis-2.1.3/installation/lib:$LD_LIBRARY_PATH"
+
+## Increase stack size
+ulimit -s hard
+ulimit -u hard
+
+### Expand environment variables in tab completion ###
+shopt -s direxpand
+
+## group permissions
+umask 027
+
+## Commands for interactive node
+#alias cuda_interactive='srun -A OCE23001 --partition=gpu-a100-dev --time=01:00:00 -n1 --pty /bin/bash'
+alias interactive='srun -A OCE23001 --partition=skx-dev --time=01:00:00 -N 1 --ntasks 4 --cpus-per-task=7 --pty bash -i'
+
+## git authentication
+git config --global credential.helper "cache --timeout=86400"
+
+## Other people's directories
+# Community portal
+#export communitydir=/work/projects/aci/ECCO/community
+
+# Patrick
+export ph_data=/work/03263/heimbach/data
+export ph_work=/work/03263/heimbach/
+export ph_scratch=/scratch/03263/heimbach/
+
+# An
+export an_work=/work/03901/atnguyen
+export an_scratch=/scratch/03901/atnguyen
+
+# Helen
+export hp_work=/work2/05773/hpillar
+export hp_scratch=/scratch/05773/hpillar
+export hp_LRP_rootdir=/work2/05773/hpillar/MITgcm_c68q/mysetups
+export hp_LRP_scratchdir=/scratch/05773/hpillar/RUNS_FROM_STAMPEDE2
+
+# Tim
+export ts_work=/work/03754/tsmith
+export ts_scratch=/scratch/03754/tsmith
+
+# Joseph
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/work/07665/shrey911/stampede3/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/work/07665/shrey911/stampede3/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/work/07665/shrey911/stampede3/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/work/07665/shrey911/stampede3/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/work/07665/shrey911/stampede3/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/work/07665/shrey911/stampede3/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+# Load a default python env
+mamba activate py310_LRP
