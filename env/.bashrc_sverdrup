@@ -64,20 +64,20 @@ git config --global credential.helper "cache --timeout=86400"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$SSCRATCH/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/scratch2/shreyas/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$SSCRATCH/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "$SSCRATCH/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/scratch2/shreyas/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/scratch2/shreyas/mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="$SSCRATCH/mambaforge/bin:$PATH"
+        export PATH="/scratch2/shreyas/mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "$SSCRATCH/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "$SSCRATCH/mambaforge/etc/profile.d/mamba.sh"
+if [ -f "/scratch2/shreyas/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/scratch2/shreyas/mambaforge/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 
@@ -109,3 +109,18 @@ export hp_matlabdir=$hp_home/HP_MATLAB_SVERDRUP/matlab_forShreyas_adjLRPcompare
 export ts_home=/home/tsmith
 export ts_scratch=/scratch/tsmith
 export ts_scratch2=/scratch2/tsmith
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/shreyas/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/shreyas/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<
