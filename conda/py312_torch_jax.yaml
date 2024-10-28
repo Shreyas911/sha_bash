@@ -24,6 +24,8 @@ dependencies:
     - torchaudio
 # Jax
     - jax
+# Typing hints
+    - beartype
 # xarray et al
     - xarray
     - netCDF4

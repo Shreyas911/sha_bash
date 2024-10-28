@@ -27,6 +27,8 @@ dependencies:
     - cartopy
     - cmocean
     - pyresample
+# Typing hints
+    - beartype
 # for other packages
     - cachetools
     - fsspec
