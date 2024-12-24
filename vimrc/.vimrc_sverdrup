@@ -1,4 +1,22 @@
+syntax on
+set nosmartindent
+set ignorecase
+set foldmethod=marker
+highlight! link DiffText Todo
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+filetype indent off
+set wrap
+if &diff
+  highlight DiffAdd cterm=bold ctermfg=88 ctermbg=15 gui=none guifg=bg guibg=Cyan
+  highlight DiffChange cterm=bold ctermfg=25 ctermbg=255 gui=none guifg=bg guibg=Cyan
+endif
+set t_Co=16
+set textwidth=0
 set history=100
 set number
-set viminfo='100,<1000,s100,h
+set autoindent
 set noexpandtab
+set tabstop=4
+set shiftwidth=4
+set viminfo='100,<1000,s100,h
+set clipboard=uname
