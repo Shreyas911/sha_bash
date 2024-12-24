@@ -29,6 +29,7 @@ dependencies:
     - pyresample
 # Typing hints
     - beartype
+    - jaxtyping
 # for other packages
     - cachetools
     - fsspec
