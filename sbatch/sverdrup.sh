@@ -9,7 +9,6 @@
 
 ## Enter email address here for begin/end notifications
 #SBATCH --mail-user=shreyas.gaikwad@utexas.edu
-#SBATCH --mail-type=begin
-#SBATCH --mail-type=end
+#SBATCH --mail-type=ALL
 
 pytest tests.py
