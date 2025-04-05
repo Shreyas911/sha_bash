@@ -1,0 +1,66 @@
+name: py310_GrIS_DA
+channels:
+  - conda-forge
+  - defaults
+  - main
+dependencies:
+    - python=3.10
+# Basics
+    - numpy
+    - scipy
+    - future
+    - pip
+# pip
+    - pip:
+      # LRP
+      - innvestigate
+      # Others
+      - rasterio
+# xarray et al
+    - xarray
+    - netCDF4
+    - bottleneck
+    - dask
+    - cftime
+    - nc-time-axis
+    - xmitgcm
+    - xgcm
+    - ecco_v4_py
+# plotting resampling
+    - cartopy
+    - cmocean
+    - pyresample
+# Typing hints
+    - beartype
+    - jaxtyping
+# for other packages
+    - cachetools
+    - fsspec
+    - zarr
+    - coverage
+    - pytest-cov 
+    - codecov
+    - black
+    - docrep
+    - aiohttp
+# jupyter etc
+    - jupyter
+    - jupyterlab
+    - ipython
+    - ipykernel
+# etc
+    - gsw
+    - vaex
+    - numba
+    - h5py
+    - hdf4
+    - hdf5
+# docs
+    - sphinx
+    - sphinx_rtd_theme
+    - numpydoc
+    - nbsphinx
+# Specify blas to use mkl
+    - mkl
+    - libblas=*=*mkl
+
