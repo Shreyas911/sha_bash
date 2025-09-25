@@ -49,7 +49,7 @@ module load prun
 #module load prun
 
 ## Commands 
-alias qu='squeue -u shreyas'
+alias qu='squeue --format="%.18i %.9P %.20j %.8u %.2t %.10M %.6D %R" -u shreyas'
 alias cds='cd $SCRATCH/'
 alias cdss='cd $SSCRATCH/'
 alias ..="cd .."
@@ -61,6 +61,7 @@ alias sicopolis="cd $HOME/update_to_develop_sicopolis/sicopolis"
 ulimit -s hard
 ulimit -u hard
 ulimit -s unlimited
+export OMP_STACKSIZE="10G"
 
 ### Expand environment variables in tab completion ###
 shopt -s direxpand
@@ -73,6 +74,8 @@ alias interactive='srun -p normal -t 14400 -n 24 --pty /bin/bash -l'
 
 ## git authentication
 git config --global credential.helper "cache --timeout=86400"
+## git and ^M issue
+git config --global core.autocrlf input
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
