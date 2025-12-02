@@ -17,8 +17,6 @@
 
 ### Connect to Jupyter notebook on Sverdrup ###
 # For compute node notebook, need to pass port number and IP address
-export ssh_jump='-J login1.oden.utexas.edu'
 jupytersv () {
-    ssh -p 8704 $ssh_jump -L localhost:$1:$2:$1 sverdrup.oden.utexas.edu; 
+	ssh -L localhost:$1:$2:$1 sverdrup.oden.utexas.edu;
 }
-
