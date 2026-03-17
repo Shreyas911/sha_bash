@@ -1,0 +1,34 @@
+##set terminal
+export TERM=xterm-256color
+
+## Directories
+export HOME=/Users/shreyas
+export sha_bash=$HOME/Desktop/Shreyas/sha_bash
+
+## Commands
+alias sverdrup='ssh shreyas@sverdrup.oden.utexas.edu'
+alias stampede2='ssh shrey911@stampede2.tacc.utexas.edu'
+alias stampede3='ssh shrey911@stampede3.tacc.utexas.edu'
+alias lonestar6='ssh shrey911@ls6.tacc.utexas.edu'
+alias vista='ssh shrey911@vista.tacc.utexas.edu'
+alias pcluster='ssh -i ~/.ssh/id_rsa_key_PCLUSTER_ECCO_Hackweek -X sgaikwad@34.210.1.198'
+alias ..="cd .."
+alias ...="cd ../.."
+alias cd..="cd .."
+
+## Source this to use jupytersv command for Sverdrup
+source $HOME/Desktop/connect_to_sverdrup_notebook.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Add Julia to path
+export PATH="$PATH:/Applications/Julia-1.9.app/Contents/Resources/julia/bin"
+
+# jupyter for Sverdrup and Lonestar6
+source $HOME/Desktop/connect_to_sverdrup_notebook.sh
+source $HOME/Desktop/connect_to_lonestar6_notebook.sh
+source $HOME/Desktop/connect_to_stampede3_notebook.sh
+source $HOME/Desktop/connect_to_vista_notebook.sh
