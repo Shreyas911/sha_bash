@@ -10,10 +10,10 @@ PS1='\W\$ '
 export nickname='stampede3'
 
 ## Modules
-module load gcc/13.2.0
+module load gcc/16.1.0
 module load netcdf/4.9.2
 module load cmake/3.28.1
-module load impi/21.11
+module load impi/21.18
 module save
 
 ## Directories
