@@ -25,6 +25,9 @@ export LIBRARY_PATH=/usr/lib64/:$LIBRARY_PATH
 export LISDIR="$HOME/lis-2.1.3/installation"
 export NETCDF_FORTRAN_DIR="/opt/ohpc/pub/libs/gnu/openmpi/netcdf-fortran/4.4.4"
 
+## LAPACK-diffblas
+export LAPACKDIR=/home/shreyas/lapack/build/lib
+
 ## Modules for GNU
 module use /share/modulefiles/
 module load java/jdk/16.0.1 # Required by Tapenade
@@ -96,7 +99,7 @@ if [ -f "/scratch2/shreyas/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-mamba activate py310_LRP
+mamba activate py310_GrIS_DA
 
 ## Other people's directories
 
