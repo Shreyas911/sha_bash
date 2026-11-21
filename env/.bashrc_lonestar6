@@ -132,5 +132,8 @@ if [ -f "/work/07665/shrey911/ls6/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+#Claude
+export PATH=$HOME/bin:$PATH
+
 # Load a default python env
 mamba activate XAIRT
